@@ -1,0 +1,40 @@
+1) Create a folder and place examples.c into the folder.
+
+2) Download cst.obj from http://kx.com/q/w32/ and place it in the folder you created.
+
+
+3) Download Microsoft Visual Studio C++ 2010 Express from:
+http://www.microsoft.com/visualstudio/en-us/products/2010-editions/visual-cpp-express
+
+4) Start up Visual Studio. Select file -> new project -> Win32 Console Application under 
+Visual C++ and enter a name for your Project, click OK. Then in the Win32 Application 
+Wizard that pops up, select Console application for the Application type. In the additional
+options uncheck the precompiled header and check the Empty project.
+
+5) The windows sockets library WS2_32.lib is required. 
+This can be found in the Windows SDK available at:
+http://msdn.microsoft.com/en-us/windows/bb980924
+
+5) In the menu bar select View -> Other Windows -> Solution Explorer. Right click on Source 
+Files and select Add -> Existing Item and add the C code we wish to connect to q, in our 
+case examples.c
+
+6) In Solution Explorer, right-click on Header Files, select Add -> Existing Item
+and add k.h [available from www.kx.com/q/c/c]
+
+7) In the menu bar, select Project -> Properties click on linker -> input
+then add cst.obj,WS2_32.lib into additional dependencies
+
+8) Now we tell visual studio c++ where to find these additional dependencies
+Project -> Properties click on Configuration Properties -> VC++ Directories, add your 
+directory to the library directory 
+
+9) start a q server loading file eg.q and start the q server listening on port 9001. 
+
+10) now click debug->build solution and run.... 
+
+
+
+
+
+
